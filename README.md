@@ -1,7 +1,24 @@
 # 计时跟踪器
-
+##介绍
 一个简单的计时跟踪器实现
+##引入
 ```go
+import {
+	tt "github.com/huyoufu/go-timetracker"
+}
+func func main() {
+    tracker := tt.NewTimeTracker("some task info.....")
+    //do something
+    
+    //
+	tracker.Close()
+    tracker.PrintBeautiful()
+}
+```
+
+##一个简单列子
+```go
+func f(){
     tracker := NewTimeTracker("查询商品信息")
 		tracker.StepStart("第一步查询商品信息")
 		time.Sleep(time.Duration(int64(rand.Intn(100)*1000*10000)))
@@ -19,6 +36,7 @@
 		tracker.StepEnd()
 	tracker.Close()
     tracker.PrintBeautiful()
+}
 ```
 结果如下:
 ```text
